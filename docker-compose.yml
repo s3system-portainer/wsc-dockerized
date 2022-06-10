@@ -41,3 +41,12 @@ services:
           - mysqld
           - --innodb_buffer_pool_size=2G
           - --innodb_buffer_pool_instances=2
+
+    redis:
+        image: "redis:7-alpine"
+        restart: always
+        ports:
+          - "6379:6379"
+        command:
+          - redis-server
+          - --bind 0.0.0.0
