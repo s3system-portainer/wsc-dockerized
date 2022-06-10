@@ -27,6 +27,7 @@ Every version is shipped with the same basic components:
 - MySQL 8
   + 2 GB InnoDB Buffer Pool Size
   + 2 InnoDB Buffer Pool Instances
+- Redis 7
 
 Depending on the WSC version, the PHP installation differs accordingly:
 
@@ -107,9 +108,23 @@ You may wonder, if this was already everything, and the simple answer is:
 
 If no errors occurred during the installation process, everything is set-up, and you can enjoy using the WoltLab software 🎉
 
+## FAQ
+
+__Question:__ How can I use redis as caching method?
+
+__Answer:__
+
+1. Log in to the administration panel of your WoltLab Suite Core installation (e.g. `http://localhost/acp`)
+2. Head over to Configuration -> General -> Cache
+3. Check `Use Redis` under `Caching Method`
+4. Paste `redis:6379` into the `Redis-Server` input field
+
 ## Troubleshooting
 
-__Problem__
+__Problem:__ redis doesn't seem to work after setting it up, it always shows "Filesystem" as cache source.
+__Solution:__ The given redis server ip is invalid. Make sure, not to use `localhost`, or `127.0.0.1`. The correct hostname is `redis`.
+
+__Problem:__
 > An error has occurred while trying to connect to your database:
 > 
 > Connecting to MySQL server 'localhost' failed
@@ -119,7 +134,7 @@ __Problem__
 
 __Solution:__ The given MySQL hostname is incorrect. Make sure, not to use `localhost`, or `127.0.0.1`. The correct hostname is `mysql`.
 
-__Problem__
+__Problem:__
 > An error has occurred while trying to connect to your database:
 > 
 > Connecting to MySQL server 'mysql' failed
