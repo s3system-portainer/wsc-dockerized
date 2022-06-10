@@ -1,4 +1,4 @@
-FROM php:7.4-fpm-alpine
+FROM php:8.0-fpm-alpine
 LABEL maintainer="Sascha Greuel <sascha@softcreatr.de>"
 
 RUN set -eux; \
@@ -18,6 +18,7 @@ RUN set -eux; \
         exif \
         intl \
         gd \
+        gmp \
         imagick \
         pdo_mysql \
         redis \
@@ -27,4 +28,4 @@ RUN set -eux; \
 COPY ./start-container.sh /usr/local/bin/start-container
 RUN chmod +x /usr/local/bin/start-container
 
-ENTRYPOINT ["start-container", "/wsc", "5.3"]
+ENTRYPOINT ["start-container", "/wsc", "5.4"]
