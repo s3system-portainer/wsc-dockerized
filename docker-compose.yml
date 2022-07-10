@@ -29,6 +29,7 @@ services:
             - "./mysql/files:/var/lib/mysql-files"
             - "./mysql/logs:/var/log/mysql"
             - "./mysql/conf:/etc/mysql"
+            - "./mysql/conf/conf.d:/etc/mysql/conf.d"
         environment:
             MYSQL_ROOT_HOST: "172.*.*.*"
             MYSQL_RANDOM_ROOT_PASSWORD: "yes"
